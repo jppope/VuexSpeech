@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" integrity="sha256-CDVQJfU+jJGU/oyDzvnzuGXbv0rz+SyBsPQwyn7x/jQ=" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div id="app">
+      <section>
+        <div class="columns">
+        <div class="column"></div>
+        <div class="column"> 
+        <br>
+        <br>
+        <h1 class="title is-4">Things Forget You Have to Pay For:</h1>
+        <br>
+          <!-- component --> 
+            <add-item></add-item>
+          <!-- /component --> 
+
+          <br>
+
+          <!-- component --> 
+            <list></list>
+          <!-- /component -->
+
+
+        </div>
+        <div class="column"></div>
+        </div>
+      </section>
+
+    </div>
+
+    <template id="input-area">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" v-model="item">
+        </div>
+        <div class="control">
+          <a class="button is-info" @click="additem">Add Item</a>
+        </div>
+      </div>
+    </template>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+    <script>
+      
+      Vue.component('list', {
+        data: function(){
+          return {
+            items: [
+              'Table Linens', 
+              'Wedding Present'
+            ],
+          };
+        },
+        template: '<div><ul><li v-for="item in items">{{ item }}</li></ul></div>',
+        created: function(){
+          // don't forget about the re-assignment
+          var list = this.items;
+          EventBus.$on('addToList', function(item){
+            list.push(item);
+          });
+        }
+      })
+
+      Vue.component('add-item', {
+        template: '#input-area',
+        data:  function () {
+          return {
+            item: 'Tip for the Band'
+          }
+        },
+        methods: {
+          additem: function(){
+            EventBus.$emit('addToList', this.item);
+          }
+        },
+      });
+      
+
+
+      var EventBus = new Vue();
+
+      new Vue({
+        el: '#app',
+        data:{
+          example: 'this is an example',
+        },
+      });
+
+    </script>
+  </body>
+</html>

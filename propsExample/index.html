@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>title</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" integrity="sha256-CDVQJfU+jJGU/oyDzvnzuGXbv0rz+SyBsPQwyn7x/jQ=" crossorigin="anonymous" />
+  </head>
+  <body>
+    <div id="app">
+      <section>
+        <div class="columns">
+        <div class="column"></div>
+        <div class="column"> 
+        <br>
+        <br>
+        <h1 class="title is-4">Questions you will be asked @ your wedding...</h1>
+        <br>
+          <!-- component --> 
+            <add-item v-on:increment="itemToList"></add-item>
+          <!-- /component --> 
+
+          <br>
+
+          <!-- component --> 
+            <list :items="items"></list>
+          <!-- /component -->
+
+
+        </div>
+        <div class="column"></div>
+        </div>
+      </section>
+
+    </div>
+
+    <template id="input-area">
+      <div class="field has-addons">
+        <div class="control">
+          <input class="input" v-model="item">
+        </div>
+        <div class="control">
+          <a class="button is-info" @click="addItemToList">Add Item</a>
+        </div>
+      </div>
+    </template>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/2.4.2/vue.min.js"></script>
+    <script>
+      
+      Vue.component('list', {
+        props: ['items'],
+        template: '<div><ul><li v-for="item in items">{{ item }}</li></ul></div>',
+      })
+
+      Vue.component('add-item', {
+        template: '#input-area',
+        data: function(){
+          return {
+            item:'Where are you going on your honeymoon?'
+          }
+        },
+        methods: {
+          addItemToList: function () {
+            this.$emit('increment', this.item);
+            this.item = '';
+          }
+        },
+      });
+      
+
+      new Vue({
+        el: '#app',
+        data:{
+          items: [
+            'Are you excited?', 
+            'When are you having kids?'
+          ],
+        },
+        methods:{
+          itemToList: function (item) {
+            this.items.push(item);
+          }
+        }
+      });
+
+    </script>
+  </body>
+</html>
