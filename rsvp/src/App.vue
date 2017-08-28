@@ -1,0 +1,79 @@
+<template>
+  <div id="app">
+    <navbar></navbar>
+
+    <div v-if="step == 0">
+      <findguest></findguest>
+    </div>
+
+    <div class="container is-fluid">
+      <div class="columns">
+        <div class="column is-half">
+
+        <!-- display state --> 
+          <div v-if="step != 0">
+            <state></state>
+          </div>
+
+        </div>
+
+        <!-- display steps -->
+        <div class="column">
+
+          <!-- step 1 --> 
+          <div v-if="step == 1">
+            <found></found>
+          </div>
+
+          <!-- step 2 -->
+          <div v-if="step == 2">
+            <rsvp></rsvp>
+          </div>
+
+          <!-- step 3 -->
+          <div v-if="step == 3">
+            <coming></coming>
+          </div>
+
+          <!-- step 4 -->
+          <div v-if="step == 4">
+            <notcoming></notcoming>
+          </div>
+
+
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script>
+import navbar from './components/Navbar';
+import findguest from './components/FindGuest';
+import found from './components/Found';
+import rsvp from './components/Rsvp';
+import coming from './components/Coming';
+import notcoming from './components/NotComing';
+import state from './components/State';
+
+export default {
+  name: 'app',
+  components: {
+    navbar,
+    findguest,
+    found,
+    rsvp,
+    coming,
+    notcoming,
+    state,
+  },
+  computed: {
+    step() {
+      return this.$store.getters.step;
+    },
+  },
+};
+</script>
+
+<style>
+</style>
