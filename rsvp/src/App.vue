@@ -25,11 +25,6 @@
             <found></found>
           </div>
 
-          <!-- step 2 -->
-          <div v-if="step == 2">
-            <rsvp></rsvp>
-          </div>
-
         </div>
       </div>
     </div>
@@ -40,7 +35,6 @@
 import navbar from './components/Navbar';
 import findguest from './components/FindGuest';
 import found from './components/Found';
-import rsvp from './components/Rsvp';
 import state from './components/State';
 
 export default {
@@ -49,7 +43,6 @@ export default {
     navbar,
     findguest,
     found,
-    rsvp,
     state,
   },
   computed: {
