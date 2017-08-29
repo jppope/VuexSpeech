@@ -50,8 +50,6 @@ export default {
     findguest,
     found,
     rsvp,
-    coming,
-    notcoming,
     state,
   },
   computed: {
