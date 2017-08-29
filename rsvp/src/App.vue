@@ -2,63 +2,25 @@
   <div id="app">
     <navbar></navbar>
 
-    <div v-if="step == 0">
-      <findguest></findguest>
-    </div>
-
-    <div class="container is-fluid">
-      <div class="columns">
-        <div class="column is-half">
-
-        <!-- display state --> 
-          <div v-if="step != 0">
-            <state></state>
-          </div>
-
-        </div>
-
-        <!-- display steps -->
-        <div class="column">
-
-          <!-- step 1 --> 
-          <div v-if="step == 1">
-            <found></found>
-          </div>
-
-          <!-- step 2 -->
-          <div v-if="step == 2">
-            <rsvp></rsvp>
-          </div>
-
-        </div>
+    <section class="section">
+      <div class="container">
+        <h1 class="title is-1 has-text-centered"> Hi There! </h1>
       </div>
-    </div>
+    </section>
+
+
   </div>
 </template>
 
 <script>
 import navbar from './components/Navbar';
-import findguest from './components/FindGuest';
-import found from './components/Found';
-import rsvp from './components/Rsvp';
-import state from './components/State';
 
 export default {
   name: 'app',
   components: {
     navbar,
-    findguest,
-    found,
-    rsvp,
-    coming,
-    notcoming,
-    state,
   },
-  computed: {
-    step() {
-      return this.$store.getters.step;
-    },
-  },
+  computed: {},
 };
 </script>
 
