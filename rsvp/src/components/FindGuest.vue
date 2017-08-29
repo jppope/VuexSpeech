@@ -37,7 +37,6 @@
 </template>
 
 <script>
-import { mapActions } from 'vuex';
 
 export default {
   name: 'findGuest',
@@ -46,11 +45,6 @@ export default {
       msg: 'Wedibration.com',
       email: 'peteruritis@gmail.com',
     };
-  },
-  methods: {
-    ...mapActions([
-      'checkUser',
-    ]),
   },
 };
 </script>
