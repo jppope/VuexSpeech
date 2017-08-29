@@ -25,10 +25,6 @@
             <found></found>
           </div>
 
-          <!-- step 2 -->
-          <div v-if="step == 2">
-            <rsvp></rsvp>
-          </div>
 
         </div>
       </div>
@@ -50,8 +46,6 @@ export default {
     findguest,
     found,
     rsvp,
-    coming,
-    notcoming,
     state,
   },
   computed: {
