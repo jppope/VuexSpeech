@@ -15,7 +15,7 @@
                 <input class="input" v-model="email">
               </div>
               <div class="control">
-                <a class="button is-info" @click="checkGuest(email)">Find Guest</a>                
+                <a class="button is-info" @click="checkUser(email)">Find Guest</a>                
               </div>
             </div>
           </div>
@@ -44,12 +44,12 @@ export default {
   data() {
     return {
       msg: 'Wedibration.com',
-      email: 'something@email.com',
+      email: 'peteruritis@gmail.com',
     };
   },
   methods: {
     ...mapActions([
-      'checkGuest',
+      'checkUser',
     ]),
   },
 };

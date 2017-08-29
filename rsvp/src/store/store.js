@@ -9,37 +9,47 @@ export const store = new Vuex.Store({
   state: {
     step: 0,
     user: {},
+    rsvp: {
+      attending: null,
+    },
   },
   getters: {
     step: state => state.step,
-    // doubleCounter: state => state.counter * 2,
-    // stringCounter: state => `${state.counter} clicks`,
   },
   mutations: {
     incrementStep: state => state.step++,
     setUser: (state, user) => { state.user = user },
+    responded: state => state.rsvp.responded = true,
+    attending: state => state.rsvp.attending = true,
+    notAttending: state => state.rsvp.attending = false,
+    withGuest: state => state.rsvp.guest = true,
   },
   actions: {
-    // increment: context => context.commit('increment')
-    checkGuest: (context, payload) => {
-
+    incrementStep: context => context.commit('incrementStep'),
+    responded: context => context.commit('responded'),
+    attending: context => context.commit('attending'),
+    notAttending: context => context.commit('notAttending'),
+    withGuest: context => context.commit('withGuest'),
+    checkUser: (context, payload) => {
       // pretend this is a database call
       if (payload == 'peteruritis@gmail.com') {
-
-        // eslint-disable-nextline
-        context.commit('incrementStep');
         
-        // eslint-disable-nextline
-        context.commit('setUser', {
-          name: 'Peter Uritis',
-          email: 'peteruritis@gmail.com',
-          description: 'Salesman, Goliath of Guiness, Breaker of Chains, and the mother of dragons',
-        });
+        setTimeout(function(){
+          // eslint-disable-nextline
+          context.commit('incrementStep');
+          
+          // eslint-disable-nextline
+          context.commit('setUser', {
+            name: 'Peter Uritis',
+            email: 'peteruritis@gmail.com',
+            description: 'Salesman, Goliath of Guiness, Breaker of Chains, and the mother of dragons',
+            allowedGuest: true,
+          });
+        }, 1000);
 
       } else {
         alert("Nope... Nope");
       }
     },
-    incrementStep: (context) => context.commit('incrementStep'),
   }
 })

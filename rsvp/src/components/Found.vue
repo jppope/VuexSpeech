@@ -27,7 +27,7 @@
           </div>
         </div>
         <footer class="card-footer">
-            <a class="card-footer-item" @click="stepUp">RSVP</a>
+            <a class="card-footer-item" @click="rsvp">RSVP</a>
             <a class="card-footer-item" @click="alert('Sorry About that')">Whoops... (It's not me)</a>
         </footer>
       </div>
@@ -45,12 +45,9 @@
       ]),
     },
     methods: {
-      ...mapState([
-        'incrementStep',
-      ]),
-      stepUp() {
-        // eslint-disable-next-line
-        alert("working");
+      rsvp() {
+        this.$store.dispatch('incrementStep');
+        this.$store.dispatch('responded');
       },
     },
   };
