@@ -4,18 +4,35 @@
     <meta charset="UTF-8">
     <title>title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" integrity="sha256-CDVQJfU+jJGU/oyDzvnzuGXbv0rz+SyBsPQwyn7x/jQ=" crossorigin="anonymous" />
+    <style>
+      #app {
+        padding:10px;
+      }
+      .diagram{ 
+        border:2px solid #ddd;
+        margin: 5px; 
+        width: 400px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
+
       <section>
         <div class="columns">
         <div class="column"></div>
-        <div class="column"> 
+        <div class="column">
+          <div class="diagram">
+            <img src="eventbus.png">
+          </div>
+        </div>
+        <div class="column is-half"> 
         <br>
         <br>
-        <h1 class="title is-4">Things Forget You Have to Pay For:</h1>
+        <h1 class="title is-4">Things you will forget <br><small>(That you have to pay for):</small></h1>
         <br>
-        
+          
           <!-- component --> 
             <add-item></add-item>
           <!-- /component --> 
@@ -60,8 +77,8 @@
         },
         template: '<div><ul><li v-for="item in items">{{ item }}</li></ul></div>',
         created: function(){
-          // don't forget about the re-assignment
           var list = this.items;
+          // don't forget about the re-assignment
           EventBus.$on('addToList', function(item){
             list.push(item);
           });
@@ -78,12 +95,11 @@
         methods: {
           additem: function(){
             EventBus.$emit('addToList', this.item);
+            this.item = '';
           }
         },
       });
       
-
-
       var EventBus = new Vue();
 
       new Vue({

@@ -4,30 +4,45 @@
     <meta charset="UTF-8">
     <title>title</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bulma/0.5.1/css/bulma.min.css" integrity="sha256-CDVQJfU+jJGU/oyDzvnzuGXbv0rz+SyBsPQwyn7x/jQ=" crossorigin="anonymous" />
+    <style>
+      .diagram{ 
+        margin: 5px; 
+        width: 400px;
+        border-radius: 5px;
+      }
+    </style>
   </head>
   <body>
     <div id="app">
+
       <section>
+        <br>
+        <br>
         <div class="columns">
-        <div class="column"></div>
-        <div class="column"> 
-        <br>
-        <br>
-        <h1 class="title is-4">Questions you will be asked @ your wedding...</h1>
-        <br>
-          <!-- component --> 
-            <add-item v-on:increment="itemToList"></add-item>
-          <!-- /component --> 
-
+          <div class="column"></div>
+          <div class="column"> 
+            <div class="diagram">
+              <img src="https://vuejs.org/images/props-events.png">
+            </div>
+          </div>
+          <div class="column is-half"> 
           <br>
+          <br>
+          <h1 class="title is-4">Questions you will be asked @ your wedding...</h1>
+          <br>
+            <!-- component --> 
+              <add-item v-on:increment="itemToList"></add-item>
+            <!-- /component --> 
 
-          <!-- component --> 
-            <list :items="items"></list>
-          <!-- /component -->
+            <br>
+
+            <!-- component --> 
+              <list :items="items"></list>
+            <!-- /component -->
 
 
-        </div>
-        <div class="column"></div>
+          </div>
+          <div class="column"> </div>
         </div>
       </section>
 

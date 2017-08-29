@@ -30,17 +30,6 @@
             <rsvp></rsvp>
           </div>
 
-          <!-- step 3 -->
-          <div v-if="step == 3">
-            <coming></coming>
-          </div>
-
-          <!-- step 4 -->
-          <div v-if="step == 4">
-            <notcoming></notcoming>
-          </div>
-
-
         </div>
       </div>
     </div>
@@ -52,8 +41,6 @@ import navbar from './components/Navbar';
 import findguest from './components/FindGuest';
 import found from './components/Found';
 import rsvp from './components/Rsvp';
-import coming from './components/Coming';
-import notcoming from './components/NotComing';
 import state from './components/State';
 
 export default {
