@@ -3,4 +3,5 @@
 3. addComponents
 4. rigUpFindGuest
 5. setupSteps
-6. 
+6. step1
+7. 
