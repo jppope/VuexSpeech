@@ -56,103 +56,103 @@
 				it was a shitty speech```
 				</section>
 
-<section data-markdown>
-What I'm going to cover: 
+				<section data-markdown>
+				What I'm going to cover: 
 
-- What is Vuex?
-- How to implement it.
-- Why you should care...
-</section>
+				- What is Vuex?
+				- How to implement it.
+				- Why you should care...
+				</section>
 
-<section data-markdown>
-![image](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAPhAAAAJDM5MWJmNzY0LTFmN2EtNGZlOC1hMzU5LTMwNmQwODM5YzkzMQ.jpg)
-### Jon Paul Uritis
+				<section data-markdown>
+				![image](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAPhAAAAJDM5MWJmNzY0LTFmN2EtNGZlOC1hMzU5LTMwNmQwODM5YzkzMQ.jpg)
+				### Jon Paul Uritis
 
-Canadian-American Gypsy
-######  (Newport Beach, California)
+				Canadian-American Gypsy
+				######  (Newport Beach, California)
+				</section>
 
-</section>
+				<section>
+				Failures:
+				<ul>
+					<li> 
+						<small>
+							I almost failed out of high school 3 times for skipping class and going to the public library to read.
+						</small>  
+					</li>
+					<li> 
+						<small>
+						I had the opportunity to interview Mars Volta for Skratch Magazine but I skipped it because I wasn't into At The Drive In and hadn't had time to listen to their new album.  
+						</small>
+					</li>
+					<li> 
+						<small>
+							At the Univeristy of Kansas my Top accomplishment was throwing a Boxing Match on My Deck that had 1000+ people show up. 
+						</small> 
+					</li>
 
-<section >
-Failures:
-<ul>
-	<li> 
-		<small>
-			I almost failed out of high school 3 times for skipping class and going to the public library to read.
-		</small>  
-	</li>
-	<li> 
-		<small>
-		I had the opportunity to interview Mars Volta for Skratch Magazine but I skipped it because I wasn't into At The Drive In and hadn't had time to listen to their new album.  
-		</small>
-	</li>
-	<li> 
-		<small>
-			At the Univeristy of Kansas my Top accomplishment was throwing a Boxing Match on My Deck that had 1000+ people show up. 
-		</small> 
-	</li>
+					<li> 
+						<small>
+							When I came out of school the best job I could find was data entry for Temple University.  
+						</small>
+					</li>
 
-	<li> 
-		<small>
-			When I came out of school the best job I could find was data entry for Temple University.  
-		</small>
-	</li>
+					<li> 
+						<small>
+							I was demoted from a position that I worked 3 years to get, where I was running all of New York City for Verizon's largest Retailer, because I couldn't stop writing hilarious "All company" emails. 
+						</small> 
+					</li>
 
-	<li> 
-		<small>
-			I was demoted from a position that I worked 3 years to get, where I was running all of New York City for Verizon's largest Retailer, because I couldn't stop writing hilarious "All company" emails. 
-		</small> 
-	</li>
-
-	<li> 
-		<small>
-			I've built 3 companies and done a restaurant flip, none of which has ever made more than enough money to pay for me to live comfortably. 
-		</small>
-	</li>
-</ul>
-
-</section>
+					<li> 
+						<small>
+							I've built 3 companies and done a restaurant flip, none of which has ever made more than enough money to pay for me to live comfortably. 
+						</small>
+					</li>
+				</ul>
+				</section>
 
 <section data-markdown>
 What is Vuex
 
-> Centralized State Management for Vue.js
+> "Centralized State Management for Vue.js"
 
 </section>
 
 <section data-markdown>
 
-### State!
-
-"its condition regarding stored inputs"
-
-the particular condition that someone or something is in at a specific time.
-
-In information technology and computer science, a program is described as stateful if it is designed to remember preceding events or user interactions; the remembered information is called the state of the system.
+## State?
 
 </section>
 
 <section data-markdown>
-
-State!
-
-The stuff thats going on at a specific time (now).
-
+> "its condition regarding stored inputs"
 </section>
+<section data-markdown>
+> "the particular condition that someone or something is in at a specific time."
+</section>
+<section data-markdown>
+> "In information technology and computer science, a program is described as stateful if it is designed to remember preceding events or user interactions; the remembered information is called the state of the system."
+</section>
+
 
 <section data-markdown>
 
-(Analogy)
+## State!
 
-State of the Union: 
+> Basically => The stuff thats going on at a specific time (like now).
+
+</section>
+
+<section data-background="https://www.thenation.com/wp-content/uploads/2017/03/Donald_Trump_Speech_Media_Fawning_RTR_IMG.jpg"></section>
+
+
+<section data-markdown>
+
+### Analogy - State of the Union: 
 
 - Unemployment is 4.3%
 - Nasa found water on the moon
 - And the country is about to burn itself down
-
-That is the "state of the United States"
-
-<image trump> 
 
 </section>
 
@@ -164,13 +164,9 @@ Why Manage State?
 
 Generally, You're application needs to be aware of the rest of the stuff going on... specifically component to component communications
 
-Think Google Analytics... pick a date.
-
 </section>
-<section data-markdown>
 
-![img](google analytics)
-
+<section data-background="https://lh5.googleusercontent.com/gJJwYnk6iALkQNWNhwKrWOed2hl0-Pq-TH0iSnqqEtDUurgM3kmQ8JZSPbb3YSKuF1jgLovZVq_a2C-mMQxXLSnPBOEO5WeTA6KvxXj8djg9BfL7Weu9kvv6Uwj4oHSVc_g3rSvZ">
 </section>
 
 <section data-markdown>
@@ -216,7 +212,7 @@ An Event Bus is a Separate Vue instance that you pass events to and from
 
 <section data-markdown>
 
-Vuex (I.E. the reason I'm here)
+Vuex (i.e. the reason I'm here)
 
 > (good for everything that is neither small nor small-medium)
 
@@ -227,7 +223,7 @@ Vuex (I.E. the reason I'm here)
 
 How to install
 
-- npm or yarn install vuex
+> `npm or yarn install vuex`
 
 </section>
 
@@ -238,15 +234,18 @@ How to implement
 - Add import statements to main.js import { store } from './store/store';
 - Add store to Vue instance
 
-    new Vue({
-      el: '#app',
-      router,
-      store,
-      template: '<App/>',
-      components: { App },
-    });
+    	new Vue({
+      	el: '#app',
+      	router,
+      	store,
+      	template: '<App/>',
+      	components: { App },
+    	});
 
+</section>
+<section data-markdown>
 - Create store.js (do store stuff)
+
       import Vue from 'vue';
       import Vuex from 'vuex';
       
@@ -258,13 +257,16 @@ How to implement
           counter: 0,
         },
       });
-- Access the Store
+</section>
+<section data-markdown>      
+Access the Store
 
-      computed: {
-        storeCounter() {
-          return this.$store.state.counter;
-        },
-      },
+    computed: {
+      	storeCounter() {
+        			return this.$store.state.counter;
+      	},
+    },
+
 </section>
 
 <section data-markdown>
@@ -273,10 +275,8 @@ How to implement
 
 
 
-<section data-markdown>
-
-<img wedding time>
-
+<section data-background="https://metrouk2.files.wordpress.com/2017/02/1pkw1vq.jpg?w=748&h=470&crop=1">
+	<h3 style="  text-shadow: 3px 5px 5px #000;">Getting Married...</h3>
 </section>
 
 <section data-markdown>
@@ -285,10 +285,10 @@ How to implement
 
 Major Tasks: 
 
-- Texting 2500 people for their info (fuck you Facebook)
+- Texting 2500 people for their info
 - Handling Invitations
 - RSVP to the wedding 
-- Chinese Gifts => University of California Irvine Stats degree === $17,000 / year!
+- Chinese Gifts (Stripe integration)
 - Thank You's
 
 </section>
@@ -319,71 +319,31 @@ Vuex (most common) Main Patterns
 
 Add components
 
-- Start
-- Attendance
-  - yes
-  - no
+- Find Guest
+- Attendance (Yes/No)
 - Food
 - Music
 
 </section>
 
 <section data-markdown>
-
-Start Component
-
-- email
-
+## Demo
 </section>
-
-
-
-<section data-markdown>
-
-Attendance
-
-</section>
-
-
-
-<section data-markdown>
-
-Review
-
-- Give a chance to review all information
-- (Donation instead of gift???)
-
-</section>
-
-
-
-<section data-markdown>
-
-Wrap Up
-
-
-
-</section>
-
-
 
 <section data-markdown>
 
 Take Aways
 
-
-
+-
 </section>
 
 
 
 <section data-markdown>
 
-FAQs
-
-- 
-
-
+### Thank You!
+> Twitter/ Github: @jppope 
+(jonpaul.uritis@thestormcloudgroup.com)
 
 </section>
 
