@@ -1,13 +1,21 @@
 <!doctype html>
-<html>
+<html lang="en">
+
 	<head>
 		<meta charset="utf-8">
+
+		<title>reveal.js – The HTML Presentation Framework</title>
+
+		<meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+		<meta name="author" content="Hakim El Hattab">
+
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
-
 		<link rel="stylesheet" href="css/reveal.css">
-		<link rel="stylesheet" href="css/theme/black.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
@@ -20,30 +28,316 @@
 			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
 			document.getElementsByTagName( 'head' )[0].appendChild( link );
 		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
 	</head>
+
 	<body>
+
 		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
 			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
+
+				<section data-background="wed.png">
+					<h3 style="text-shadow: 3px 3px 3px #000;">
+						Automating My Wedding...
+						<br>
+						<small>Part 1: RSVP form (Vuex)</small>
+					</h3>
+				</section>
+
+				<section data-markdown>
+				```Note for Devs reviewing this speech... Remember, slides are for showing visuals! 
+				Not for reading from. If you know whats going on from the slides alone... 
+				it was a shitty speech```
+				</section>
+
+				<section data-markdown>
+				What I'm going to cover: 
+
+				- What is Vuex?
+				- How to implement it.
+				- Why you should care...
+				</section>
+
+				<section data-markdown>
+				![image](https://media.licdn.com/mpr/mpr/shrinknp_200_200/AAEAAQAAAAAAAAPhAAAAJDM5MWJmNzY0LTFmN2EtNGZlOC1hMzU5LTMwNmQwODM5YzkzMQ.jpg)
+				### Jon Paul Uritis
+
+				Canadian-American Gypsy
+				######  (Newport Beach, California)
+				</section>
+
+				
+
+<section data-markdown>
+What is Vuex
+
+> "Centralized State Management for Vue.js"
+
+</section>
+
+<section data-markdown>
+
+## State?
+
+</section>
+
+<section data-markdown>
+> "In information technology and computer science, a program is described as stateful if it is designed to remember preceding events or user interactions; the remembered information is called the state of the system."
+</section>
+
+<section data-markdown>
+
+## State!
+
+> Basically => The stuff thats going on at a specific time (like now).
+
+</section>
+
+<section data-background="https://www.thenation.com/wp-content/uploads/2017/03/Donald_Trump_Speech_Media_Fawning_RTR_IMG.jpg"></section>
+
+
+<section data-markdown>
+
+### Analogy - State of the Union: 
+
+- Unemployment is 4.3%
+- Nasa found water on the moon
+- And the country is about to burn itself down
+
+</section>
+
+<section data-markdown>
+
+Why Manage State?
+
+(A lot of reasons... but in regards Vuex)
+
+> Generally, You're application needs to be aware of the rest of the stuff going on... specifically component to component communications
+
+</section>
+
+<section data-background="https://lh5.googleusercontent.com/gJJwYnk6iALkQNWNhwKrWOed2hl0-Pq-TH0iSnqqEtDUurgM3kmQ8JZSPbb3YSKuF1jgLovZVq_a2C-mMQxXLSnPBOEO5WeTA6KvxXj8djg9BfL7Weu9kvv6Uwj4oHSVc_g3rSvZ">
+</section>
+
+<section data-markdown>
+
+### Solutions for State Management
+
+- Prop / Event Emmiters 
+- Event Bus
+- Vuex
+
+</section>
+
+
+
+<section data-markdown>
+
+### Prop / Event Emiters
+
+The process for passing state in between components and the App
+
+> (Great for a small application, bad for a BIG application)
+
+</section>
+
+
+<section data-background="http://1.bp.blogspot.com/-SmsJ2F0b9pE/Ua8tBaPjdnI/AAAAAAAAGbw/4r1CA3Lf1iM/s1600/Hilarious+Wedding+Party+Photo.jpg">
+	<h3 style="text-shadow: 3px 3px 3px #000;">
+		Demo
+	</h3>
+</section>
+
+<section data-markdown>
+
+Event Bus
+
+An Event Bus is a Separate Vue instance that you pass events to and from
+
+> (Really good for small-medium sized applications, bad for a BIG application, unnecessary for a small)
+
+</section>
+
+<section data-background="http://www.bizarbin.com/wp-content/uploads/2013/02/Bizarre-Honeymoon-Pictures-0001.jpg">
+	<h3 style="text-shadow: 3px 3px 3px #000;">
+		Demo
+	</h3>
+</section>
+<section data-markdown>
+
+Vuex (i.e. the reason I'm here)
+
+> (good for everything that is neither small nor small-medium)
+
+</section>
+
+
+<section data-markdown>
+
+How to install
+
+> `npm or yarn install vuex`
+
+</section>
+
+<section data-markdown>
+
+How to implement
+
+- Add import statements to main.js import { store } from './store/store';
+- Add store to Vue instance
+
+    	new Vue({
+      	el: '#app',
+      	router,
+      	store,
+      	template: '<App/>',
+      	components: { App },
+    	});
+
+</section>
+<section data-markdown>
+- Create store.js (do store stuff)
+
+      import Vue from 'vue';
+      import Vuex from 'vuex';
+      
+      Vue.use(Vuex);
+      
+      // eslint-disable-next-line
+      export const store = new Vuex.Store({
+        state: {
+          counter: 0,
+        },
+      });
+</section>
+<section data-markdown>      
+Access the Store
+
+    computed: {
+      	storeCounter() {
+        			return this.$store.state.counter;
+      	},
+    },
+
+</section>
+
+<section data-markdown>
+### Demo (basic)
+</section>
+
+
+
+<section data-background="https://metrouk2.files.wordpress.com/2017/02/1pkw1vq.jpg?w=748&h=470&crop=1">
+	<h3 style="  text-shadow: 3px 5px 5px #000;">Getting Married...</h3>
+</section>
+
+<section data-markdown>
+
+### My Wedding Automations
+
+Major Tasks: 
+
+- Texting 2500 people for their info
+- Handling Invitations
+- RSVP to the wedding 
+- Chinese Gifts (Stripe integration)
+- Thank You's
+
+</section>
+
+
+
+<section data-markdown>
+
+So what are we building??? 
+
+> RSVP for for Wedibration.com
+
+</section>
+
+
+<section data-markdown>
+
+Vuex (most common) Main Patterns
+
+- Getters
+- Mutations
+- Actions
+
+</section>
+
+
+<section data-markdown>
+
+Add components
+
+- Find Guest
+- Attendance (Yes/No)
+- Food
+- Music
+
+</section>
+
+<section data-markdown>
+## Demo
+</section>
+
+<section data-markdown>
+
+Take Aways
+
+- Please Use Vuex...
+</section>
+
+
+
+<section data-markdown>
+
+### Thank You!
+> Twitter/ Github: @jppope 
+(jonpaul.uritis@thestormcloudgroup.com)
+
+</section>
+
+
+
+
 			</div>
+
 		</div>
 
 		<script src="lib/js/head.min.js"></script>
 		<script src="js/reveal.js"></script>
 
 		<script>
-			// More info about config & dependencies:
-			// - https://github.com/hakimel/reveal.js#configuration
-			// - https://github.com/hakimel/reveal.js#dependencies
+
+			// More info https://github.com/hakimel/reveal.js#configuration
 			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// More info https://github.com/hakimel/reveal.js#dependencies
 				dependencies: [
-					{ src: 'plugin/markdown/marked.js' },
-					{ src: 'plugin/markdown/markdown.js' },
-					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
 				]
 			});
+
 		</script>
+
 	</body>
 </html>
